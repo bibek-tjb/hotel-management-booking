@@ -1,0 +1,17 @@
+{
+  "name": "solene-house-hotel",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:ci": "npm install --offline --ignore-scripts --no-audit --no-fund --update-notifier=false --cache /opt/codex/cache/sites-vinext-npm",
+    "build": "node scripts/build.mjs",
+    "db:generate": "drizzle-kit generate",
+    "test": "node --test tests/booking.test.mjs",
+    "start": "node server/local.mjs --open"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.10",
+    "drizzle-orm": "0.45.2"
+  }
+}
