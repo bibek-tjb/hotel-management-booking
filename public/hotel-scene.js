@@ -79,7 +79,7 @@ export async function createHotel(canvas,initialMotion=true){
  for(let i=0;i<8;i++)tree(-28+i*8,-26-rand()*5,2+rand()*2);
  scene.add(new T.HemisphereLight('#fff2d7','#6e8573',2.1));const sun=new T.DirectionalLight('#ffe7b7',3.2);sun.position.set(-18,24,20);sun.castShadow=true;sun.shadow.mapSize.set(mobile?1024:2048,mobile?1024:2048);sun.shadow.camera.left=-27;sun.shadow.camera.right=27;sun.shadow.camera.top=24;sun.shadow.camera.bottom=-24;sun.shadow.camera.near=1;sun.shadow.camera.far=85;sun.shadow.normalBias=.05;sun.shadow.bias=-.0002;sun.shadow.radius=4;scene.add(sun);
  for(const [x,y,z] of [[0,2.8,-2],[0,2.8,-7],[8.3,2.7,-10],[-8.3,2.7,-10]]){const p=new T.PointLight('#ffce8b',12,9,2);p.position.set(x,y,z);scene.add(p);}
- const environment=await new Promise(resolve=>new T.TextureLoader().load('/assets/hotel.webp',resolve,undefined,()=>resolve(null)));
+ const environment=await new Promise(resolve=>new T.TextureLoader().load('./assets/hotel.webp',resolve,undefined,()=>resolve(null)));
  if(environment){environment.mapping=T.EquirectangularReflectionMapping;environment.colorSpace=T.SRGBColorSpace;const pmrem=new T.PMREMGenerator(renderer);scene.environment=pmrem.fromEquirectangular(environment).texture;scene.environmentIntensity=.25;pmrem.dispose();environment.dispose();}
  // Static geometry is merged by material; only door leaves stay separate.
  scene.updateMatrixWorld(true);const batches=new Map(),remove=[];
